@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mainDiv"></div>
+    <button onclick="createAndShowHtml('green', 'hei2', 10, 'blue','solid',5, 'purple')">test 1</button>
+    <button onclick="createAndShowHtml('blue', 'hei4', 30, 'green','dashed',6, 'white')">test 2</button>
+    <button onclick="createAndShowHtml('yellow', 'hei5', 20, 'black','dotted', 4, 'red')">test 3</button>
+    <button onclick="createAndShowHtml('black', 'wasup', 40, 'purple','solid', 3, 'green')">test 4</button>
+    <script>
+
+        function createAndShowHtml(color, text, fontSize, borderColor, borderStyle, borderSize, txtColor) {
+            document.getElementById('mainDiv').innerHTML = `
+            <div ${createStyle(color, fontSize,borderColor, borderStyle, borderSize, txtColor)} >${text} </div>
+        `;
+        }
+
+        function createStyle(color, fontSize, borderColor, borderStyle, borderSize, txtColor) {
+            return `style= "${createBackgroundColor(color)} ${createFontSize(fontSize)} ${createBorder(borderColor, borderStyle, borderSize)} ${createtextColor(txtColor)}"`;
+        }
+
+        function createBackgroundColor(color) {
+            return `background-color: ${color};`;
+        }
+
+        function createFontSize(fontSize) {
+            return `font-size: ${fontSize}px;`;
+        }
+
+        function createBorder(borderColor, borderStyle, borderSize) {
+            return `border: ${borderColor} ${borderStyle} ${createBorderSize(borderSize)};`;
+        }
+
+        function createBorderSize(borderSize) {
+            return `${borderSize}px;`;
+        }
+
+        function createtextColor(txtColor) {
+            return `color: ${txtColor};`;
+        }
+
+    </script>
+</body>
+
+</html>
